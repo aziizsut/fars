@@ -23,7 +23,6 @@ This `vignette` gives a brief overview to the **FARS** (Fatality Analysis Report
 ```{r echo=FALSE, include=FALSE}
 
 library(fars)
-library(sf) # for any geo based analysis - Optional
 library(dplyr)
 library(maps)
 
