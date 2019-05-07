@@ -39,8 +39,8 @@ There are three functions for this package:
 
 The function `fars_read()` reads dataset from a file path provided as an argument. It returns a `tibble` with loaded data:
 
-```{r fars_read_example}
-filename <- system.file("extdata/accident_2013.csv.bz2", package = "fars")
+```{r fars_read_example, eval=FALSE}
+filename <- system.file("data/accident_2013.csv.bz2", package = "fars")
 fars_read(filename)
 ```
 
@@ -48,7 +48,7 @@ fars_read(filename)
 
 This function takes a list of years for FARS dataset and convert it to the  tidy dataset with additional column of the year.
 
-```{r fars_read_years_example}
+```{r fars_read_years_example, eval=FALSE}
 
 years <- c(2013:2014)
 filtered_data <- fars_read_years(years)
@@ -60,7 +60,7 @@ filtered_data <- fars_read_years(years)
 
 This function `fars_map_state()` use the object class created by the `fars_read_years()` function as arguments and returns a plot of the state with accident locations. The state indices need to correspond available indeces from the dataset. Here are some examples:
 
-```{r fars_map_state_example}
+```{r fars_map_state_example, eval=FALSE}
 setwd(system.file("data", package = "fars"))
 fars_map_state(45, 2015)
 ```
