@@ -1,0 +1,67 @@
+---
+title: "FARS Function Collection"
+author: "Aziiz Sutrisno"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+This `vignette` gives a brief overview to the **FARS** (Fatality Analysis Reporting System) using data from the [National Highway Traffic Safety Administration](https://www.nhtsa.gov/research-data/fatality-analysis-reporting-system-fars). The dataset is a nationwide census providing the American public yearly data, regarding fatal injuries suffered in motor vehicle traffic crashes.
+
+#` Load the Packages
+
+```{r echo=FALSE, include=FALSE}
+
+library(fars)
+library(sf) # for any geo based analysis - Optional
+library(dplyr)
+library(maps)
+
+```
+
+## Functions in this package
+
+There are three functions for this package:
+1.  `fars_read()` - This function works to read the NHTSA dataset and translate it into a required format
+2.  `fars_read_years()` - This function works to filter the years in the dataset
+3.  `fars_map_state()` - This function create a visualization of the 
+
+## Examples of `fars_read()`
+
+The function `fars_read()` reads dataset from a file path provided as an argument. It returns a `tibble` with loaded data:
+
+```{r fars_read_example}
+filename <- system.file("extdata/accident_2013.csv.bz2", package = "fars")
+fars_read(filename)
+```
+
+## Using the Year Dataset that you need
+
+This function takes a list of years for FARS dataset and convert it to the  tidy dataset with additional column of the year.
+
+```{r fars_read_years_example}
+
+years <- c(2013:2014)
+filtered_data <- fars_read_years(years)
+
+```
+
+
+## Plot Fatal accident locations
+
+This function `fars_map_state()` use the object class created by the `fars_read_years()` function as arguments and returns a plot of the state with accident locations. The state indices need to correspond available indeces from the dataset. Here are some examples:
+
+```{r fars_map_state_example}
+setwd(system.file("data", package = "fars"))
+fars_map_state(45, 2015)
+```
