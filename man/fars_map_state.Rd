@@ -25,5 +25,4 @@ The function will return an Error saying that the State is not found if the stat
 }
 \examples{
 \dontrun {fars_map_state(12, 2008)}
-
 }

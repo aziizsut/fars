@@ -22,5 +22,4 @@ The function will return a message of "File not exists" if the file requested
 }
 \examples{
 \dontrun{fars_read(file)}
-
 }
