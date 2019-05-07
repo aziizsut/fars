@@ -84,7 +84,6 @@ fars_summarize_years <- function(years) {
 #' @import dplyr
 #' @import maps
 #' @import graphics
-#' @import sf
 #' @examples \dontrun {fars_map_state(12, 2008)}
 #'
 fars_map_state <- function(state.num, year) {
