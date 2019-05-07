@@ -8,8 +8,7 @@
 #' @details The function will return a message of "File not exists" if the file requested
 #'          in the argument does not exist
 #' @return Return a tidy tibble dataset
-#' @examples \dontrun{fars_read(file)}
-#'
+
 fars_read <- function(filename) {
   if(!file.exists(filename))
     stop("file '", filename, "' does not exist")
@@ -24,7 +23,7 @@ fars_read <- function(filename) {
 #' @description This function returns a character vector containing a formatted
 #' @param year numeric value of the year
 #' @return "accident_2006.csv.bz2" a formatted character vector of a dataset
-#' @examples \dontrun{make_filename(2006)}
+
 make_filename <- function(year) {
   year <- as.integer(year)
   sprintf("accident_%d.csv.bz2", year)
@@ -38,8 +37,7 @@ make_filename <- function(year) {
 #' @details The function will return an error if the years inserted is not available within the list
 #' @return The function return a list of FARS dataset with corrected names and time signal columns
 #' @import dplyr
-#' @examples \dontrun {years <- c(2006:2010)}
-#' @examples \dontrun {fars_read_years(years)}
+
 
 fars_read_years <- function(years) {
   lapply(years, function(year) {
@@ -61,9 +59,8 @@ fars_read_years <- function(years) {
 #' @return The function returns a wide tibble object with the result of total number of events in year and month
 #' @import dplyr
 #' @import tidyr
-#' @examples \dontrun {years <- c(2006:2010)}
-#' @examples \dontrun {fars_summarize_years(years)}
-#'
+
+
 fars_summarize_years <- function(years) {
   dat_list <- fars_read_years(years)
   dplyr::bind_rows(dat_list) %>%
@@ -84,8 +81,7 @@ fars_summarize_years <- function(years) {
 #' @import dplyr
 #' @import maps
 #' @import graphics
-#' @examples \dontrun {fars_map_state(12, 2008)}
-#'
+
 fars_map_state <- function(state.num, year) {
   filename <- make_filename(year)
   data <- fars_read(filename)

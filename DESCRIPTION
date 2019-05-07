@@ -11,7 +11,8 @@ RoxygenNote: 6.1.1
 Imports: dplyr,
          maps,
          readr,
-         tidyr
+         tidyr,
+		 tibble
 Suggests: 
     testthat,
     knitr,

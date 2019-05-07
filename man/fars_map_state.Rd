@@ -23,7 +23,3 @@ The function return a map with data points of the number of incidents happened o
 The function will return an Error saying that the State is not found if the state.num parameter is not found within the dataset
          The function will return an Error saying that there is no accidents at that particular years and state if the length of Data is 0
 }
-\examples{
-\dontrun {fars_map_state(12, 2008)}
-
-}

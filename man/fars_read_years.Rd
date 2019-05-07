@@ -19,7 +19,3 @@ This function takes a list of years for FARS dataset and convert it to the  tidy
 \details{
 The function will return an error if the years inserted is not available within the list
 }
-\examples{
-\dontrun {years <- c(2006:2010)}
-\dontrun {fars_read_years(years)}
-}

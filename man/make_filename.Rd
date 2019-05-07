@@ -15,6 +15,3 @@ make_filename(year)
 \description{
 This function returns a character vector containing a formatted
 }
-\examples{
-\dontrun{make_filename(2006)}
-}

@@ -20,7 +20,3 @@ This function return a tidy tible dataset of from the US National
 The function will return a message of "File not exists" if the file requested
          in the argument does not exist
 }
-\examples{
-\dontrun{fars_read(file)}
-
-}

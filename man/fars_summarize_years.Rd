@@ -15,8 +15,3 @@ The function returns a wide tibble object with the result of total number of eve
 \description{
 This function returns a tibble dataset of multi-years labeled FARS dataset
 }
-\examples{
-\dontrun {years <- c(2006:2010)}
-\dontrun {fars_summarize_years(years)}
-
-}
