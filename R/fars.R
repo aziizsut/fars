@@ -4,12 +4,12 @@
 #' @usage \code{"fars_read(filename)"}
 #' @param filename A file with csv extension
 #' @importfrom readr read_csv
-#' @import dplyr tbl_df
+#' @import dplyr
+#' @import tbl_df
 #' @details The function will return a message of "File not exists" if the file requested
 #'          in the argument does not exist
 #' @return Return a tidy tibble dataset
-#' @example
-#' \dontrun{fars_read(file)}
+#' @examples \dontrun{fars_read(file)}
 #'
 fars_read <- function(filename) {
   if(!file.exists(filename))
@@ -25,8 +25,7 @@ fars_read <- function(filename) {
 #' @description This function returns a character vector containing a formatted
 #' @param year numeric value of the year
 #' @return "accident_2006.csv.bz2" a formatted character vector of a dataset
-#' @example
-#' \dontrun{make_filename(2006)}
+#' @examples \dontrun{make_filename(2006)}
 make_filename <- function(year) {
   year <- as.integer(year)
   sprintf("accident_%d.csv.bz2", year)
@@ -40,9 +39,8 @@ make_filename <- function(year) {
 #' @details The function will return an error if the years inserted is not available within the list
 #' @return The function return a list of FARS dataset with corrected names and time signal columns
 #' @import dplyr
-#' @example
-#' \dontrun {years <- c(2006:2010)}
-#' \dontrun {fars_read_years(years)}
+#' @examples \dontrun {years <- c(2006:2010)}
+#' @examples \dontrun {fars_read_years(years)}
 
 fars_read_years <- function(years) {
   lapply(years, function(year) {
@@ -62,10 +60,10 @@ fars_read_years <- function(years) {
 #' @description This function returns a tibble dataset of multi-years labeled FARS dataset
 #' @param years a list with numerical values depicting the years of interest in FARS dataset
 #' @return The function returns a wide tibble object with the result of total number of events in year and month
-#' @import dplyr and tidyr
-#' @example
-#' \dontrun {years <- c(2006:2010)}
-#' \dontrun {fars_summarize_years(years)}
+#' @import dplyr
+#' @import tidyr
+#' @examples \dontrun {years <- c(2006:2010)}
+#' @examples \dontrun {fars_summarize_years(years)}
 #'
 fars_summarize_years <- function(years) {
   dat_list <- fars_read_years(years)
@@ -87,7 +85,8 @@ fars_summarize_years <- function(years) {
 #' @import dplyr
 #' @import map
 #' @import graphics
-#' \dontrun {fars_map_state(12, 2008)}
+#' @import sf
+#' @examples \dontrun {fars_map_state(12, 2008)}
 #'
 fars_map_state <- function(state.num, year) {
   filename <- make_filename(year)

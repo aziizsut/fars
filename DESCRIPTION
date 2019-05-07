@@ -1,9 +1,12 @@
 Package: fars
-Title: What the Package Does (one line, title case)
+Title: Tools to Wrangle FARS Data from the NHTSA
 Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Authors@R: person("Aziiz", "Sutrisno", email = "aziiz.ti06@gmail.com", role = c("aut", "cre"))
+Description: This package Wrangle and Visualize the FARS dataset from the NHTSA to a more friendly format
 Depends: R (>= 3.5.3)
-License: What license is it under?
+License: MIT-License
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 6.1.1
+Suggests: 
+    testthat
