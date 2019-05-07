@@ -3,13 +3,12 @@
 #'              Highway Traffic Safety Administration's Fatality Analysis Reporting System in a zip format
 #' @usage \code{"fars_read(filename)"}
 #' @param filename A file with csv extension
-#' @import tibble
 #' @import readr
+#' @import tibble
 #' @details The function will return a message of "File not exists" if the file requested
 #'          in the argument does not exist
 #' @return Return a tidy tibble dataset
 #' @examples \dontrun{fars_read(file)}
-#' @export
 #'
 fars_read <- function(filename) {
   if(!file.exists(filename))
@@ -41,7 +40,6 @@ make_filename <- function(year) {
 #' @import dplyr
 #' @examples \dontrun {years <- c(2006:2010)}
 #' @examples \dontrun {fars_read_years(years)}
-#' @export
 
 fars_read_years <- function(years) {
   lapply(years, function(year) {
@@ -65,7 +63,7 @@ fars_read_years <- function(years) {
 #' @import tidyr
 #' @examples \dontrun {years <- c(2006:2010)}
 #' @examples \dontrun {fars_summarize_years(years)}
-#' @export
+#'
 fars_summarize_years <- function(years) {
   dat_list <- fars_read_years(years)
   dplyr::bind_rows(dat_list) %>%
@@ -88,7 +86,7 @@ fars_summarize_years <- function(years) {
 #' @import graphics
 #' @import sf
 #' @examples \dontrun {fars_map_state(12, 2008)}
-#' @export
+#'
 fars_map_state <- function(state.num, year) {
   filename <- make_filename(year)
   data <- fars_read(filename)
